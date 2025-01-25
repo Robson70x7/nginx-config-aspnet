@@ -1,0 +1,26 @@
+{
+	"name": "Nginx ASP.NET Core Demo",
+	"dockerComposeFile": [
+	  "../docker-compose.yml",
+	  "docker-compose.override.yml"
+	],
+	"service": "app",
+	"workspaceFolder": "/src",
+	"features": {
+		"ghcr.io/nils-geistmann/devcontainers-features/zsh": {},
+		"ghcr.io/stuartleeks/dev-container-features/shell-history":{} 
+	},
+	"shutdownAction": "stopCompose",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"eamodio.gitlens",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	}
+	//"postCreateCommand": "tail -f /dev/null",
+	//"remoteUser": "app"
+  }
+  

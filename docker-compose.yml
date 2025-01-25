@@ -1,0 +1,30 @@
+services:
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - app1
+      - app2
+    networks:
+      - webnet
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./static:/usr/share/nginx/html/static
+  app1:
+    build:
+      context: ./app
+    container_name: app1
+    networks:
+      - webnet
+  app2:
+    build:
+      context: ./app
+    container_name: app2
+    networks:
+      - webnet
+
+networks:
+  webnet:
